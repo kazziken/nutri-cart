@@ -1,24 +1,14 @@
-# README
+Nutri-Cart
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The new and accessible handling of your nutrition. An app where you can add all of your foods, ingredients, and vitamins into a cart in order to see all of the nutritional facts all calculated together for you!
 
-Things you may want to cover:
+Have you ever wondered about all of the calories, total carbs, sodium, sugar, and other nutritional facts you are consuming per eating session. Well this is the app for you.
 
-* Ruby version
+Simply create an account, add all the foods or ingredients to your "cart" and you will be able to view all of the information added up.
 
-* System dependencies
+Nutri-cart will automatically log the cart under the date and time that you created it.
 
-* Configuration
+You can edit or delete your cart at anytime. 
 
-* Database creation
+Level up your nutrition today!
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
