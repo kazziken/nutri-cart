@@ -16,6 +16,7 @@ function App() {
         <Switch>
           <Route path="/testing">
             <h1>Test Route</h1>
+            <h1> Gang </h1>
           </Route>
           <Route path="/">
             <h1>Page Count: {count}</h1>
