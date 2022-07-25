@@ -6,7 +6,14 @@ function Login({ setUser }) {
   const [showLogin, setShowLogin] = useState(true);
 
     return (
-      <div> 
+      <div>
+          <div className="logo">
+          <img
+            src="https://i.imgur.com/CKyx7bg.png"
+            className="logo"
+            alt="logo"
+          />
+        </div>
         {showLogin ? (
         <>
           <LoginForm setUser={setUser} />

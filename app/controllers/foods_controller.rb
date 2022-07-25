@@ -1,5 +1,4 @@
 class FoodsController < ApplicationController
-    # before_action :authorize, only: [:index, :show, :create]
     
     def index
         render json: Food.all

@@ -1,5 +1,4 @@
 class CartFoodsController < ApplicationController
-    # before_action :authorize, only: [:show, :create, :destroy]
 
     def show
         cart_food = find_cart_food

@@ -15,13 +15,14 @@ You can edit or delete your cart at anytime.
 Level up your nutrition today!
 
 -MVP
-Create Foods
-Post to Carts
-Post to Profile
-Patch Carts (edit/delete items from cart - will also readjust total nutrient fact counts)
-Delete Carts
-Login/Signup Forms
+    Create Foods
+    Search for Foods
+    Post to Carts
+    Post(Check out) to Profile
+    Patch Carts (edit/delete items from cart - will also readjust total nutrient fact counts)
+    Delete Carts
+    Login/Signup Forms
 
 -Stretch
-Email notifications
-Autocomplete for search
+    Email notifications
+    Autocomplete for search.

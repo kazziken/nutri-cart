@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Home from './Home';
 import Login from "./Login/Login";
 import Cart from "./Cart"
 import Profile from "./Profile"
+import Navbar from "./Navbar";
 import "./App.css"
+
 
 function App() {
   const [user, setUser] = useState({});
@@ -18,24 +20,24 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
       <div className="App">
         <Switch>
-          <Route path="/">
-            <Login setUser={user}/>
+          <Route exact path="/">
+            <Login setUser={user}/> 
           </Route>
-          <Route path="/home">
-            <Home user={user} />
+          <Route exact path="/home">
+            <Home setUser={user} user={user}/>
           </Route>
-          <Route path="/profile">
-            <Profile user={user}/>
+          <Route exact path="/profile">
+            <Navbar setUser={user}/>
+            <Profile />
           </Route>
-          <Route path="/cart">
+          <Navbar setUser={user}/>
+          <Route exact path="/cart">
             <Cart />
           </Route>
         </Switch>
       </div>
-    </BrowserRouter>
   );
 }
 

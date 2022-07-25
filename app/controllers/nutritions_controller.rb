@@ -1,5 +1,4 @@
 class NutritionsController < ApplicationController
-    # before_action :authorize, only: [:show, :create]
 
     def show
         nutrition = Nutrition.find(params[:id])

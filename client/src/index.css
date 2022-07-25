@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* NavBar */
+
+.nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.nav-link {
+  color: black;
+  font-weight: bold;
+}
