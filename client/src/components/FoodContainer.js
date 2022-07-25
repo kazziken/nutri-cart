@@ -1,8 +1,17 @@
-import React from 'react'
+import React from 'react';
+import FoodCard from './FoodCard';
 
-function FoodContainer() {
+function FoodContainer({user,food}) {
   return (
-    <div>FoodContainer</div>
+    <div>
+      <FoodCard
+      key={food.id}
+      id={food.id}
+      src={food.photo_url}
+      user = {user}
+      />
+  
+  </div>
   )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
+// import FoodCard from "./FoodCard"
 
 function Cart() {
-  // const [cart, setCart] = useState([]);
 
   return (
     <div>

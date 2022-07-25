@@ -16,26 +16,26 @@ function Navbar({ setUser }) {
       
     return (
       <div>
-        <div class="">
+        <div className="">
           <div className="">
             <div className="">
-              <div class="nav-item active">
-                <Link exact to="/Home" class="nav-link">
+              <div className="nav-item active">
+                <Link exact to="/Home" className="nav-link">
                   Home
                 </Link>
               </div>
-              <div class="nav-item">
-                <Link to="/Profile" class="nav-link" >
+              <div className="nav-item">
+                <Link to="/Profile" className="nav-link" >
                   Profile
                 </Link>
                 </div >
-              <div class="nav-item">
-                <Link to="/Cart" class="nav-link" >
+              <div className="nav-item">
+                <Link to="/Cart" className="nav-link" >
                 Cart
                 </Link>
               </div >
-              <div class="nav-item">
-                <Link to="/" class="nav-link" onClick={handleLogOut}>
+              <div className="nav-item">
+                <Link to="/" className="nav-link" onClick={handleLogOut}>
                   Sign Out
                 </Link>
               </div>

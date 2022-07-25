@@ -11,12 +11,15 @@ Rails.application.routes.draw do
   #users
   get "/me", to: "users#show"
   post "/signup", to: "users#create"
+  patch '/user/:id', to: "users#update"
+  delete "/user/:id", to: "users#destroy"
   #sessions
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
   #carts above
   #cart_foods
+  post "/add-to-cart", to: "cart_foods#create"
   delete "/delete-cart-food", to: "cart_foods#destroy"
 
   #foods

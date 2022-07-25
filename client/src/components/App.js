@@ -10,6 +10,7 @@ import "./App.css"
 
 function App() {
   const [user, setUser] = useState({});
+  const [addToCart, setAddToCart] = useState(false);
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -23,17 +24,30 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <Login setUser={user}/> 
+            <Login 
+            setUser={user}
+            /> 
           </Route>
           <Route exact path="/home">
-            <Home setUser={user} user={user}/>
+            <Home 
+            setUser={user} 
+            user={user}
+            addToCart={addToCart}
+            setAddToCart={setAddToCart}
+            />
           </Route>
           <Route exact path="/profile">
-            <Navbar setUser={user}/>
+            <Navbar
+            user={user} 
+            setUser={setUser}
+            />
             <Profile />
           </Route>
-          <Navbar setUser={user}/>
           <Route exact path="/cart">
+            <Navbar 
+            user={user} 
+            setUser={setUser}
+            />
             <Cart />
           </Route>
         </Switch>
