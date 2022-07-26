@@ -10,8 +10,13 @@ class FoodsController < ApplicationController
     end
 
     def create
-        food = Food.create!(food_params)
-        render json: food, status: :created
+        food = Food.find_by(food_name: params[:food_name])
+        if food
+            render json: food
+        else
+            food = Food.create!(food_params)
+            render json: food, status: :created
+        end
     end
     
     def new_food
@@ -31,6 +36,7 @@ class FoodsController < ApplicationController
         )
         render json: new_food, status: :created
     end
+
     private
     
     def food_params

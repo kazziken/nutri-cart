@@ -1,28 +1,31 @@
 import React, {useState} from "react";
 
-function FoodCard({user, item, addToCart, setAddToCart}) {
+function FoodCard({user, item, carts, setCarts}) {
 
-  const [carted, setCarted] = useState(false)
+  // const [carted, setCarted] = useState(false)
 
   function handleAddToCart() {
-    fetch("/add-to-cart", {
+    fetch("/add-to-carts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        id: carts.id,
+        user_id: user.id,
         food_id: item.tag_id,
-        user_id: user.id
+        food_name: item.food_name,
+        photo_url: item.photo.thumb
       }),
     })
       .then((res) => res.json())
-      .then((res) => {
-        return res;
-      }) 
+      .then((data) => {
+        return data;
+      })
       .catch((err) => console.error(err));
-    setAddToCart([...addToCart, item]);
-    setCarted(carted);
+    setCarts(true);
   }
+
 
   return (
     <div>
@@ -33,7 +36,7 @@ function FoodCard({user, item, addToCart, setAddToCart}) {
         className="images"
         key={item.tag_id}
       />
-      <button onClick={() => handleAddToCart(item)}> Add to Cart </button>
+      <button onClick={() => handleAddToCart()}>Add to Cart</button>
     </div>
   );
 }

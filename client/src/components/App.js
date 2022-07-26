@@ -10,7 +10,9 @@ import "./App.css"
 
 function App() {
   const [user, setUser] = useState({});
-  const [carted, setCarted] = useState(false);
+  const [carts, setCarts] = useState([]);
+
+  console.log(carts)
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -20,6 +22,7 @@ function App() {
     });
   }, []);
 
+
   return (
       <div className="App">
         <Switch>
@@ -28,30 +31,30 @@ function App() {
             setUser={user}
             /> 
           </Route>
-          <Route exact path="/home">
+          <Route path="/home">
             <Home 
-            setUser={user} 
+            setUser={user}
             user={user}
-            carted={carted}
-            setCarted={setCarted}
+            carts={carts}
+            setCarts={setCarts}
             />
           </Route>
-          <Route exact path="/profile">
+          <Route path="/profile">
             <Navbar
             user={user} 
             setUser={setUser}
             />
             <Profile />
           </Route>
-          <Route exact path="/cart">
+          <Route path="/cart">
             <Navbar 
             user={user} 
             setUser={setUser}
             />
             <Cart 
             user={user}
-            carted={carted}
-            setCarted={setCarted}
+            carted={carts}
+            setCarted={setCarts}
             />
           </Route>
         </Switch>

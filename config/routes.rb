@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   resources :cart_foods
   resources :nutritions #works
   resources :foods #works
-  resources :cart_foods #works
-  resources :carts, only: [:show, :create, :destroy] #works but do we need an update???
+  resources :carts, only: [:index, :show, :create, :destroy] #works but do we need an update???
 
   get '*path',
       to: 'fallback#index',
@@ -19,9 +18,11 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   #carts above
-  post '/carts', to: "carts#create"
+  post "/create-cart", to: "carts#create"
+  post '/add-to-carts', to: "carts#new_cart_food"
+  
   #cart_foods
-  post "/add-to-cart", to: "cart_foods#create"
+  patch '/cart_foods', to: "cart_foods#update"
   delete "/delete-cart-food", to: "cart_foods#destroy"
 
   #foods
