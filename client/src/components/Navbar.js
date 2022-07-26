@@ -8,7 +8,7 @@ function Navbar({ setUser }) {
     fetch("/logout", { method: "DELETE" })
       .then((r) => {
         if (r.ok) {
-          setUser(null)
+          setUser({})
           history.push("/")
         }
       })

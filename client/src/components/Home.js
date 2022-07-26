@@ -21,6 +21,7 @@ function Home({user, carts, setCarts}) {
   })
 
   function handleCreateCart() {
+    console.log(user)
     fetch("/create-cart", {
       method: "POST",
       headers: {

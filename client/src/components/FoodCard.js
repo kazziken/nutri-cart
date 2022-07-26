@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 function FoodCard({user, item, carts, setCarts}) {
 
-  // const [carted, setCarted] = useState(false)
+  const [carted, setCarted] = useState(false)
 
   function handleAddToCart() {
     fetch("/add-to-carts", {
@@ -23,7 +23,8 @@ function FoodCard({user, item, carts, setCarts}) {
         return data;
       })
       .catch((err) => console.error(err));
-    setCarts(true);
+    // setCarted(true);
+    setCarts([...carts, item])
   }
 
 
