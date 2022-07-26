@@ -1,11 +1,30 @@
 import React from 'react'
-// import FoodCard from "./FoodCard"
+import CreateFoodForm from './CreateFoodForm';
 
-function Cart() {
+function Cart({ user, addToCart, setAddToCart }) {
+
+  // function handleAddToCart() {
+  //   fetch("/create-cart", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       user_id: user
+  //     }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       return res;
+  //     }) 
+  //     .catch((err) => console.error(err));
+  //   setAddToCart([...addToCart, item]);
+  //   setCarted(carted);
+  // }
 
   return (
     <div>
-      <h1>Cart is here</h1> 
+      <CreateFoodForm />
     </div>
   )
 }

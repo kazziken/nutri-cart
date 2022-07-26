@@ -1,4 +1,4 @@
 class CartFood < ApplicationRecord
-    belongs_to :cart, dependent: :destroy
-    belongs_to :food, dependent: :destroy
+    belongs_to :food    
+    belongs_to :cart
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cart_foods
   resources :nutritions #works
   resources :foods #works
   resources :cart_foods #works
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   #carts above
+  post '/carts', to: "carts#create"
   #cart_foods
   post "/add-to-cart", to: "cart_foods#create"
   delete "/delete-cart-food", to: "cart_foods#destroy"

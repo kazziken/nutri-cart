@@ -10,7 +10,7 @@ import "./App.css"
 
 function App() {
   const [user, setUser] = useState({});
-  const [addToCart, setAddToCart] = useState(false);
+  const [carted, setCarted] = useState(false);
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -32,8 +32,8 @@ function App() {
             <Home 
             setUser={user} 
             user={user}
-            addToCart={addToCart}
-            setAddToCart={setAddToCart}
+            carted={carted}
+            setCarted={setCarted}
             />
           </Route>
           <Route exact path="/profile">
@@ -48,7 +48,11 @@ function App() {
             user={user} 
             setUser={setUser}
             />
-            <Cart />
+            <Cart 
+            user={user}
+            carted={carted}
+            setCarted={setCarted}
+            />
           </Route>
         </Switch>
       </div>
