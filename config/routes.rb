@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   #cart_foods
   get "/cart_foods", to: "cart_foods#show"
   patch '/update-cart_foods', to: "cart_foods#update"
-  delete "/delete-cart-food", to: "cart_foods#destroy"
+  delete "/delete-cart-food/:id", to: "cart_foods#destroy"
 
   #foods
   post "/new-food", to: "foods#new_food"

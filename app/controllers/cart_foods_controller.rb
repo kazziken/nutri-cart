@@ -4,19 +4,20 @@ class CartFoodsController < ApplicationController
     end 
     
     def show
-        cart = CartFood.find(params[:id])
-        render json: cart
+        cart_food = CartFood.find(params[:id])
+        render json: cart_food
     end
 
     def create
-        cart = CartFood.create!(cart_food_params)
-        render json: cart, status: :created
+        cart_food = CartFood.create!(cart_food_params)
+        render json: cart_food, status: :created
     end
 
 
     def destroy
-        cart = CartFood.find(params[:id])
-        cart.destroy
+        cart_food = CartFood.find(params[:id])
+        cart_food.destroy
+        render json: cart_food
     end
 
     private

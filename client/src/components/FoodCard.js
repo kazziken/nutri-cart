@@ -2,7 +2,9 @@ import React from "react";
 import {useLocation} from "react-router-dom";
 
 
-function FoodCard({user, item, carts, updateCart}) {
+function FoodCard({user, item, carts, setSelectedCart, updateCart}) {
+  
+  // const [createdFoodCart, setCreatedFoodCart] = useState([])
 
   const location = useLocation();
 
@@ -20,20 +22,24 @@ function FoodCard({user, item, carts, updateCart}) {
     })
       .then((res) => res.json())
       .then((data) => {
-        return data;
+        console.log(data ,"coming here")
+        return(data);
       })
       .catch((err) => console.error(err));
-    // setCarted(true);
-    console.log(item)
+      console.log(item)
     updateCart(item);
   }
+  
 
   function deleteItem() {
     console.log("delete called")
-    fetch(("/delete-cart-food"), 
+    fetch((`delete-cart-food/${carts.cart_foods.id}`), 
     {method: 'DELETE'})
     .then(res => res.json()
-    .then(data => {updateCart(data)})
+    .then(data => {
+      setSelectedCart(item.filter((i)=> i.carts.cart_foods.id !== data.carts.cart_foods.id)
+      )
+    })
     )
   }
     

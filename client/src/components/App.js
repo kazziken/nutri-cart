@@ -10,10 +10,10 @@ import "./App.css"
 
 function App() {
   const [user, setUser] = useState({});
-  const [carts, setCarts] = useState([]);
+  const [carts, setCarts] = useState({});
   const [selectedCart, setSelectedCart] = useState([]);
 
-  // console.log(carts)
+  console.log(carts)
   console.log(selectedCart)
 
   const updateCart = (item) => setSelectedCart([...selectedCart, item]);
@@ -40,7 +40,8 @@ function App() {
             setUser={user}
             user={user}
             carts={carts}
-            // setCarts={setCarts}
+            setCarts={setCarts}
+            setSelectedCart={setSelectedCart}
             updateCart={updateCart}
             />
           </Route>
@@ -49,7 +50,11 @@ function App() {
             user={user} 
             setUser={setUser}
             />
-            <Profile />
+            <Profile
+            setUser={user} 
+            user={user}
+            />
+            
           </Route>
           <Route path="/cart">
             <Navbar 
@@ -59,7 +64,7 @@ function App() {
             <Cart 
             user={user}
             carted={carts}
-            // setCarted={setCarts}   
+            setCarted={setCarts}   
             selectedCart={selectedCart}         
             updateCart={updateCart}
             />
