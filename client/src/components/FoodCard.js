@@ -18,6 +18,8 @@ function FoodCard({user, item, carts, setSelectedCart, updateCart}) {
         id: carts.id,
         user_id: user.id,
         food_id: item.tag_id,
+        food_name: item.food_name,
+        photo_url: item.photo.thumb
       }),
     })
       .then((res) => res.json())
