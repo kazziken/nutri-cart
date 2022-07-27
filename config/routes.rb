@@ -19,10 +19,12 @@ Rails.application.routes.draw do
 
   #carts above
   post "/create-cart", to: "carts#create"
-  post '/add-to-carts', to: "carts#new_cart_food"
+  patch '/carts/:id', to: "carts#update"
+  post '/create-food-cart', to: "carts#new_cart_food"
   
   #cart_foods
-  patch '/cart_foods', to: "cart_foods#update"
+  get "/cart_foods", to: "cart_foods#show"
+  patch '/update-cart_foods', to: "cart_foods#update"
   delete "/delete-cart-food", to: "cart_foods#destroy"
 
   #foods

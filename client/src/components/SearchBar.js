@@ -16,7 +16,7 @@ function SearchBar({setBrandedFood, setCommonFood }) {
         })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.common);
+        // console.log(data.common);
         // data.preventDefault();
        if(data.common){
         setCommonFood(data.common)

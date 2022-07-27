@@ -11,8 +11,13 @@ import "./App.css"
 function App() {
   const [user, setUser] = useState({});
   const [carts, setCarts] = useState([]);
+  const [selectedCart, setSelectedCart] = useState([]);
 
-  console.log(carts)
+  // console.log(carts)
+  console.log(selectedCart)
+
+  const updateCart = (item) => setSelectedCart([...selectedCart, item]);
+  
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -21,7 +26,6 @@ function App() {
       }
     });
   }, []);
-
 
   return (
       <div className="App">
@@ -36,7 +40,8 @@ function App() {
             setUser={user}
             user={user}
             carts={carts}
-            setCarts={setCarts}
+            // setCarts={setCarts}
+            updateCart={updateCart}
             />
           </Route>
           <Route path="/profile">
@@ -54,7 +59,9 @@ function App() {
             <Cart 
             user={user}
             carted={carts}
-            setCarted={setCarts}
+            // setCarted={setCarts}   
+            selectedCart={selectedCart}         
+            updateCart={updateCart}
             />
           </Route>
         </Switch>

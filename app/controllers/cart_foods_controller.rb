@@ -2,6 +2,7 @@ class CartFoodsController < ApplicationController
     def index
         render json: CartFood.all
     end 
+    
     def show
         cart = CartFood.find(params[:id])
         render json: cart

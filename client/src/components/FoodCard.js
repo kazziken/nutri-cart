@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React from "react";
+import {useLocation} from "react-router-dom";
 
-function FoodCard({user, item, carts, setCarts}) {
 
-  const [carted, setCarted] = useState(false)
+function FoodCard({user, item, carts, updateCart}) {
+
+  const location = useLocation();
 
   function handleAddToCart() {
-    fetch("/add-to-carts", {
+    fetch("/create-food-cart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -14,8 +16,6 @@ function FoodCard({user, item, carts, setCarts}) {
         id: carts.id,
         user_id: user.id,
         food_id: item.tag_id,
-        food_name: item.food_name,
-        photo_url: item.photo.thumb
       }),
     })
       .then((res) => res.json())
@@ -24,9 +24,22 @@ function FoodCard({user, item, carts, setCarts}) {
       })
       .catch((err) => console.error(err));
     // setCarted(true);
-    setCarts([...carts, item])
+    console.log(item)
+    updateCart(item);
   }
 
+  function deleteItem() {
+    console.log("delete called")
+    fetch(("/delete-cart-food"), 
+    {method: 'DELETE'})
+    .then(res => res.json()
+    .then(data => {updateCart(data)})
+    )
+  }
+    
+  
+
+  const addButton = <button onClick={() => handleAddToCart()}>Add to Cart</button>
 
   return (
     <div>
@@ -37,7 +50,7 @@ function FoodCard({user, item, carts, setCarts}) {
         className="images"
         key={item.tag_id}
       />
-      <button onClick={() => handleAddToCart()}>Add to Cart</button>
+      {location.pathname !== "/Cart"? addButton : <button onClick={() => deleteItem()}>Delete Button</button>}
     </div>
   );
 }

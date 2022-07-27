@@ -4,19 +4,34 @@ import Searchbar from './Searchbar';
 import FoodCard from './FoodCard';
 import { v4 as uuidv4 } from 'uuid';
 
-function Home({user, carts, setCarts}) {
+function Home({user, carts, setCarts, updateCart}) {
   const [commonFood, setCommonFood] = useState([]);
   const [brandedFood, setBrandedFood] = useState([]);
   const [createMeal, setCreateMeal] = useState(false)
 
+
   const commons = commonFood.map((item)=>{
     return(
-      <FoodCard key={uuidv4()} item={item} user={user} carts={carts} setCarts={setCarts}/>
+      <FoodCard 
+      key={uuidv4()} 
+      item={item} 
+      user={user} 
+      carts={carts} 
+      setCarts={setCarts}
+      updateCart={updateCart} 
+      />
     )
   })
   const branded = brandedFood.map((item)=>{
     return(
-      <FoodCard key={uuidv4()} item={item} user={user} carts={carts} setCarts={setCarts}/>
+      <FoodCard 
+      key={uuidv4()} 
+      item={item} 
+      user={user} 
+      carts={carts} 
+      setCarts={setCarts}
+      updateCart={updateCart} 
+      />
     )
   })
 
