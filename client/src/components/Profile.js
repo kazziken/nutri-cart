@@ -1,6 +1,17 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 function Profile({user, carts}) {
+
+  useEffect(() => {
+    fetch('/all-carts')
+      .then((response) => response.json())
+      .then((item) => {
+        console.log(item);
+        return item;
+      });
+      }, 
+    []);
+
   return (
     <div>
       {user.username}
@@ -10,7 +21,7 @@ function Profile({user, carts}) {
       alt={user.avatar}
       />
       <h1>My Folders:</h1>
-      {carts}
+      <h1>{user[carts]}</h1>
       </div>
   )
 }

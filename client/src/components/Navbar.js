@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Link, useHistory } from "react-router-dom";
 
 function Navbar({ setUser }) {
@@ -12,7 +12,13 @@ function Navbar({ setUser }) {
           history.push("/")
         }
       })
-    }  
+    }
+
+  // const [collapsed, setCollapsed] = useState(false);
+
+  // const toggleCollapsed = () => {
+  //   setCollapsed(!collapsed);
+  // };
       
     return (
       <div>

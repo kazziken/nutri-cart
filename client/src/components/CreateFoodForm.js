@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CreateFoodForm({ user, item, change, setChange }) {
+function CreateFoodForm({ user, item }) {
   const [foodName, setFoodName] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [calories, setCalories] = useState("");
@@ -35,16 +35,14 @@ function CreateFoodForm({ user, item, change, setChange }) {
         nf_dietary_fiber: dietaryFiber, 
         nf_sugars: sugars, 
         nf_protein: protein, 
-        nf_potassium: potassium,
-        // food_id: food.id,
-        user_id: user.id
+        nf_potassium: potassium,     
       }),
     })
       .then((res) => res.json())
-      .then((res) => {
+      .then((item) => {
         // console.log(res);
         setNewFood([...newFood, item]);
-      }).then((data) => setNewFood(data))
+      })
       .catch((err) => console.error(err));
   }
 
@@ -52,7 +50,7 @@ function CreateFoodForm({ user, item, change, setChange }) {
   return (
     <div className="row mb-4">
       <div className="col d-flex justify-content-center">
-        <form onSubmit={() => handleNewFood()}>
+        <form onSubmit={(e) => handleNewFood(e)}>
           <div className="form-outline mb-4">
             <input
               type="foodName"
@@ -85,7 +83,7 @@ function CreateFoodForm({ user, item, change, setChange }) {
             <input
               type="calories"
               value={calories}
-              id="form2Example2"
+              id="form2Example3"
               className="form-control"
               placeholder="Enter Calories"
               onChange={(e) => setCalories(e.target.value)}
@@ -99,7 +97,7 @@ function CreateFoodForm({ user, item, change, setChange }) {
             <input
               type="saturatedFat"
               value={saturatedFat}
-              id="form2Example2"
+              id="form2Example4"
               className="form-control"
               placeholder="Enter Saturated Fat"
               onChange={(e) => setSaturatedFat(e.target.value)}
@@ -113,7 +111,7 @@ function CreateFoodForm({ user, item, change, setChange }) {
             <input
               type="cholesterol"
               value={cholesterol}
-              id="form2Example2"
+              id="form2Example5"
               className="form-control"
               placeholder="Enter Cholesterol"
               onChange={(e) => setCholesterol(e.target.value)}
@@ -127,7 +125,7 @@ function CreateFoodForm({ user, item, change, setChange }) {
             <input
               type="totalFat"
               value={totalFat}
-              id="form2Example2"
+              id="form2Example6"
               className="form-control"
               placeholder="Enter Total Fat"
               onChange={(e) => setTotalFat(e.target.value)}
@@ -141,7 +139,7 @@ function CreateFoodForm({ user, item, change, setChange }) {
             <input
               type="totalCarbohydrate"
               value={totalCarbohydrate}
-              id="form2Example2"
+              id="form2Example7"
               className="form-control"
               placeholder="Enter Total Carbohydrate"
               onChange={(e) => setTotalCarbohydrate(e.target.value)}
@@ -155,7 +153,7 @@ function CreateFoodForm({ user, item, change, setChange }) {
             <input
               type="sodium"
               value={sodium}
-              id="form2Example2"
+              id="form2Example8"
               className="form-control"
               placeholder="Enter Sodium"
               onChange={(e) => setSodium(e.target.value)}
@@ -169,7 +167,7 @@ function CreateFoodForm({ user, item, change, setChange }) {
             <input
               type="dietaryFiber"
               value={dietaryFiber}
-              id="form2Example2"
+              id="form2Example9"
               className="form-control"
               placeholder="Enter Dietary fiber"
               onChange={(e) => setDietaryFiber(e.target.value)}
@@ -183,7 +181,7 @@ function CreateFoodForm({ user, item, change, setChange }) {
             <input
               type="sugars"
               value={sugars}
-              id="form2Example2"
+              id="form2Example10"
               className="form-control"
               placeholder="Enter Sugars"
               onChange={(e) => setSugars(e.target.value)}
@@ -197,7 +195,7 @@ function CreateFoodForm({ user, item, change, setChange }) {
             <input
               type="protein"
               value={protein}
-              id="form2Example2"
+              id="form2Example11"
               className="form-control"
               placeholder="Enter Protein"
               onChange={(e) => setProtein(e.target.value)}
@@ -211,7 +209,7 @@ function CreateFoodForm({ user, item, change, setChange }) {
             <input
               type="potassium"
               value={potassium}
-              id="form2Example2"
+              id="form2Example12"
               className="form-control"
               placeholder="Enter potassium"
               onChange={(e) => setPotassium(e.target.value)}

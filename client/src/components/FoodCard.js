@@ -1,13 +1,7 @@
 import React from "react";
-import {useLocation} from "react-router-dom";
 
-
-function FoodCard({user, item, carts, setSelectedCart, updateCart}) {
+function FoodCard({user, item, carts, setSelectedCart, updateCart, onDelete}) {
   
-  // const [createdFoodCart, setCreatedFoodCart] = useState([])
-
-  const location = useLocation();
-
   function handleAddToCart() {
     fetch("/create-food-cart", {
       method: "POST",
@@ -25,26 +19,14 @@ function FoodCard({user, item, carts, setSelectedCart, updateCart}) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data ,"coming here")
-        return(data);
+        return data;
       })
       .catch((err) => console.error(err));
       console.log(item)
-    updateCart(item);
+      updateCart(item);
   }
-  
 
-  function deleteItem() {
-    console.log("delete called")
-    fetch((`delete-cart-food/${carts.cart_foods.id}`), 
-    {method: 'DELETE'})
-    .then(res => res.json()
-    .then(data => {
-      setSelectedCart(item.filter((i)=> i.carts.cart_foods.id !== data.carts.cart_foods.id)
-      )
-    })
-    )
-  }
-    
+ 
   
 
   const addButton = <button onClick={() => handleAddToCart()}>Add to Cart</button>
@@ -58,7 +40,7 @@ function FoodCard({user, item, carts, setSelectedCart, updateCart}) {
         className="images"
         key={item.tag_id}
       />
-      {location.pathname !== "/Cart"? addButton : <button onClick={() => deleteItem()}>Delete Button</button>}
+      {addButton}
     </div>
   );
 }

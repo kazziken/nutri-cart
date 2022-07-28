@@ -50,8 +50,7 @@ function Home({user, carts, setCarts, updateCart, setSelectedCart}) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-        setCarts(data)
+      setCarts(data)
       })
   }
 

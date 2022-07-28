@@ -65,7 +65,6 @@ function App() {
             user={user}
             carted={carts}
             setCarted={setCarts}   
-            selectedCart={selectedCart}         
             updateCart={updateCart}
             />
           </Route>

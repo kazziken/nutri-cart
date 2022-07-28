@@ -1,33 +1,51 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import CreateFoodForm from './CreateFoodForm';
-import FoodCard from './FoodCard';
-import { v4 as uuidv4 } from 'uuid';
+import CartFood from './CartFood';
 
-function Cart({ item, user, carts, setCarts, selectedCart, updateCart}) {
+function Cart({ item, user, carts, updateCart}) {
 
-  // const [carted, setCarted] = useState([])
+  const [foods, setFoods] = useState([])
   // const [showForm, setShowForm] = useState(false)
 
-  console.log(selectedCart);
+  useEffect(() => {
+    fetch(`/latest-cart`)
+      .then((response) => response.json())
+      .then((data) => {
+        
+        setFoods(data.foods);
+        console.log(data.foods);
+      });
+      },[]);
 
-  const currentCart = selectedCart.map((item) => {
-    return (
-      <FoodCard
-        key={uuidv4()}
-        item={item}
-        updateCart={updateCart}
-        />
-    )
-  })
 
+  console.log(foods)
+
+
+  
   return (
     <div>
       <CreateFoodForm />
       <h1>CART: {user.username} </h1>
-      <h2>My Folders: {carts}</h2>
-      <div>
-        {currentCart}
+      <h2>My Folders:</h2>
+      <div className="cart-column">
+
+        {
+          foods.map(food => {
+            return(
+              <CartFood 
+              id={food.id} 
+              name={food.food_name} 
+              image={food.photo_url} 
+              foods={foods} 
+              setFoods={setFoods}>                
+              </CartFood>
+            )
+          })
+        }
+      
       </div>
+
+      <button><strong>End your meal</strong></button>
     </div>
   )
 }

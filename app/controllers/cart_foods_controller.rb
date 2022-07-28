@@ -1,4 +1,5 @@
 class CartFoodsController < ApplicationController
+    
     def index
         render json: CartFood.all
     end 
@@ -20,11 +21,37 @@ class CartFoodsController < ApplicationController
         render json: cart_food
     end
 
+    def user_cart_foods #THIS WORKS FOR PROFILE
+        if @user
+            render json: @user.carts
+        else
+            render json: {message: "User not found"}, status: :not_found
+        end
+    end
+
+    def user_latest_cart
+        if @user
+            render json: @user.carts.last
+        else
+            render json: {message: "Cart not found"}, status: :not_found
+        end
+    end
+
     private
 
     def cart_food_params
         params.permit(:cart_id, :food_id)
     end
+
+    def food_params
+        params.permit(:food_name, :photo_url)
+    end
+
+    def cart_params
+        params.permit(:user_id)
+    end
+
+
 
 end
     

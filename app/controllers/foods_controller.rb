@@ -37,6 +37,11 @@ class FoodsController < ApplicationController
         render json: new_food, status: :created
     end
 
+    def destroy
+        food = find_food
+        food.destroy
+    end
+    
     private
     
     def food_params

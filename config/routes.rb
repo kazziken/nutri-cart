@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   resources :cart_foods
   resources :nutritions #works
   resources :foods #works
-  resources :carts, only: [:index, :show, :create, :destroy] #works but do we need an update???
+  resources :users
+  resources :carts
 
   get '*path',
       to: 'fallback#index',
@@ -19,16 +20,19 @@ Rails.application.routes.draw do
 
   #carts above
   post "/create-cart", to: "carts#create"
-  patch '/carts/:id', to: "carts#update"
   post '/create-food-cart', to: "carts#new_cart_food"
+  patch '/carts/:id', to: "carts#update"
+  delete "/carts/:id", to: "carts#user_carts_destroy"
   
   #cart_foods
-  get "/cart_foods", to: "cart_foods#show"
-  patch '/update-cart_foods', to: "cart_foods#update"
+  get "/all-carts", to: "cart_foods#user_cart_foods" # WORKS FOR PROFILE, displays all user_carts + foods
+  get "/latest-cart", to: "cart_foods#user_latest_cart"
+  patch '/update-cart-foods', to: "cart_foods#update"
   delete "/delete-cart-food/:id", to: "cart_foods#destroy"
 
   #foods
   post "/new-food", to: "foods#new_food"
+  # delete "/delete-cart-food/:id", to: "foods#destroy"
 
 
 end

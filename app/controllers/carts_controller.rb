@@ -28,11 +28,29 @@ class CartsController < ApplicationController
         render json: cart, status: :created
     end
 
+    # def cart_cart_foods
+    #     cart = Cart.find_by(params[:user_id])
+    #     if cart
+    #         render json: cart
+    #     else
+    #         render json: {message: "Cart not found"}, status: :not_found
+    #     end
+    # end
 
     def destroy
         cart = Cart.find(params[:id])
         cart.destroy
     end
+
+    # def user_carts_destroy
+    #     user = User.find(session[:user_id])
+    #     if user
+    #         cart = user.cart
+    #         cart.destroy
+    #     else
+    #         render json: {message: "Tattoo not found"}, status: :not_found
+    #     end
+    # end
 
     private
 
