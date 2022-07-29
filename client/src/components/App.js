@@ -41,7 +41,7 @@ function App() {
             user={user}
             carts={carts}
             setCarts={setCarts}
-            setSelectedCart={setSelectedCart}
+            selectedCart={selectedCart}
             updateCart={updateCart}
             />
           </Route>
@@ -53,6 +53,7 @@ function App() {
             <Profile
             setUser={user} 
             user={user}
+
             />
             
           </Route>

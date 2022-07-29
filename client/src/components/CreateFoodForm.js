@@ -18,7 +18,7 @@ function CreateFoodForm({ user, item }) {
 
   function handleNewFood(e) {
     e.preventDefault();
-    fetch("/new-food", {
+    fetch("/new-fod", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

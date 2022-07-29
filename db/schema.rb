@@ -30,11 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_26_134657) do
   create_table "foods", force: :cascade do |t|
     t.string "food_name"
     t.string "photo_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "nutritions", force: :cascade do |t|
     t.float "nf_calories"
     t.float "nf_total_fat"
     t.float "nf_saturated_fat"
@@ -45,7 +40,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_26_134657) do
     t.float "nf_sugars"
     t.float "nf_protein"
     t.float "nf_potassium"
-    t.integer "food_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

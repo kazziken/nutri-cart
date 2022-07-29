@@ -4,7 +4,7 @@ import Searchbar from './Searchbar';
 import FoodCard from './FoodCard';
 import { v4 as uuidv4 } from 'uuid';
 
-function Home({user, carts, setCarts, updateCart, setSelectedCart}) {
+function Home({user, carts, setCarts, updateCart, selectedCart}) {
   const [commonFood, setCommonFood] = useState([]);
   const [brandedFood, setBrandedFood] = useState([]);
   const [createMeal, setCreateMeal] = useState(false)
@@ -16,9 +16,8 @@ function Home({user, carts, setCarts, updateCart, setSelectedCart}) {
       key={uuidv4()} 
       item={item} 
       user={user} 
-      carts={carts} 
-      setCarts={setCarts}
-      setSelectedCart={setSelectedCart}
+      carts={carts}
+      selectedCart={selectedCart} 
       updateCart={updateCart} 
       />
     )
@@ -29,9 +28,8 @@ function Home({user, carts, setCarts, updateCart, setSelectedCart}) {
       key={uuidv4()} 
       item={item} 
       user={user} 
-      carts={carts} 
-      setCarts={setCarts}
-      setSelectedCart={setSelectedCart}
+      carts={carts}
+      selectedCart={selectedCart}
       updateCart={updateCart} 
       />
     )

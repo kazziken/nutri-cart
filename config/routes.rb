@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :cart_foods
-  resources :nutritions #works
   resources :foods #works
-  resources :users
+  resources :users #works
   resources :carts
 
   get '*path',
@@ -10,29 +9,29 @@ Rails.application.routes.draw do
       constraints: ->(req) { !req.xhr? && req.format.html? }
 
   #users
-  get "/me", to: "users#show"
-  post "/signup", to: "users#create"
-  patch '/user/:id', to: "users#update"
+  get "/me", to: "users#show" #DISPLAYS USER LOGIN
+  post "/signup", to: "users#create" #CREATES A NEW USER
+  patch '/user/:id', to: "users#update" 
   delete "/user/:id", to: "users#destroy"
   #sessions
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+  post "/login", to: "sessions#create" #LOGIN 
+  delete "/logout", to: "sessions#destroy" #LOGOUT
 
   #carts above
-  post "/create-cart", to: "carts#create"
-  post '/create-food-cart', to: "carts#new_cart_food"
+  post "/create-cart", to: "carts#create" #CREATES NEW INSTANCE OF A CART
+  post '/create-cart-food', to: "carts#new_cart_food" #CREATES NEW CART FOOD PRODUCT THAT ALSO ADDS TO CURRENT CART
   patch '/carts/:id', to: "carts#update"
   delete "/carts/:id", to: "carts#user_carts_destroy"
   
   #cart_foods
   get "/all-carts", to: "cart_foods#user_cart_foods" # WORKS FOR PROFILE, displays all user_carts + foods
-  get "/latest-cart", to: "cart_foods#user_latest_cart"
+  get "/latest-cart", to: "cart_foods#user_latest_cart" # WORKS FOR CART, DISPLAYS THE CART THE USER IS CURRENTLY ON
   patch '/update-cart-foods', to: "cart_foods#update"
-  delete "/delete-cart-food/:id", to: "cart_foods#destroy"
+  # delete "/delete-cart-food/:id", to: "cart_foods#destroy"
 
   #foods
-  post "/new-food", to: "foods#new_food"
-  # delete "/delete-cart-food/:id", to: "foods#destroy"
+  post "/new-food", to: "foods#create" #creates a new food
+  delete "/delete-cart-food/:id", to: "foods#destroy" #WORKS FOR DELETING CURRENT CART ITEMS
 
 
 end

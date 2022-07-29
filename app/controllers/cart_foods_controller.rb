@@ -44,7 +44,18 @@ class CartFoodsController < ApplicationController
     end
 
     def food_params
-        params.permit(:food_name, :photo_url)
+        params.permit(:food_name, 
+            :photo_url, 
+            :nf_calories, 
+            :nf_total_fat, 
+            :nf_saturated_fat, 
+            :nf_cholesterol, 
+            :nf_sodium, 
+            :nf_total_carbohydrate, 
+            :nf_dietary_fiber, 
+            :nf_sugars, 
+            :nf_protein, 
+            :nf_potassium)
     end
 
     def cart_params
