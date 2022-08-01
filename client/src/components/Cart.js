@@ -124,14 +124,14 @@ function Cart({user}) {
       <h2>Total Potassium: {addPotassium()}</h2>
 
 
-      <button><strong>End your meal</strong></button>
 
 
-      <ul> Recommended Daily Intake of Nutrition
+      <ul> 
+        <strong>Recommended Daily Intake of Nutrition per </strong>
         <ul>
-          Calories: 
+          Calories: 2500 calories
           <br></br>
-          Fat:
+          Fat: 30 
           <br></br>
           Saturated Fat:
           <br></br>

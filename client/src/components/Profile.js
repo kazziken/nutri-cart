@@ -12,8 +12,8 @@ function Profile({user}) {
     fetch('/all-carts')
       .then((response) => response.json())
       .then((item) => {
-        console.log(item);
         setDisplayCarts(item);
+        console.log(item);
       });
       }, 
     []);
@@ -27,6 +27,8 @@ function Profile({user}) {
         id={cart.id}
         key={cart.id}
         name={cart.foods}
+        time={cart.created_at}
+        displayCarts={displayCarts}
         setDisplayCarts={setDisplayCarts}
       />
     )) : null

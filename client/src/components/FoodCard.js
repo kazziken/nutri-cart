@@ -25,7 +25,7 @@ function FoodCard({user, item, carts, updateCart, selectedCart}) {
       .then((data) => {
         console.log(data ,"coming here")
         setNutrition(...nutrition, data);
-        console.log(nutrition);
+        console.log(data)
         fetch("/create-cart-food", {
           method: "POST",
           headers: {

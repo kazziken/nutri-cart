@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy" #LOGOUT
 
   #carts above
+  get '/current-cart', to: "carts#show" #displays current cart
   post "/create-cart", to: "carts#create" #CREATES NEW INSTANCE OF A CART
   post '/create-cart-food', to: "carts#new_cart_food" #CREATES NEW CART FOOD PRODUCT THAT ALSO ADDS TO CURRENT CART
   patch '/carts/:id', to: "carts#update"

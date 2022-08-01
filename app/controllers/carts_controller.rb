@@ -6,7 +6,7 @@ class CartsController < ApplicationController
     end
 
     def show
-        cart = Cart.find(params[:id])
+        cart = Cart.where(user_id: session[:user_id]).last
         render json: cart
     end
 
@@ -33,20 +33,10 @@ class CartsController < ApplicationController
         cart.destroy
     end
 
-    # def user_carts_destroy
-    #     user = User.find(session[:user_id])
-    #     if user
-    #         cart = user.cart
-    #         cart.destroy
-    #     else
-    #         render json: {message: "Tattoo not found"}, status: :not_found
-    #     end
-    # end
-
     private
 
     def cart_params
-        params.permit(:user_id)
+        params.permit(:user_id, :created_at)
     end
     
     def food_params
