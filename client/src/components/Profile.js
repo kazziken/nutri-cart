@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import CartCard from './CartCard'
 import {useState} from 'react';
+// import Cart from './Cart';
 
 
 function Profile({user}) {
@@ -18,16 +19,18 @@ function Profile({user}) {
     []);
 
     // console.log(displayCarts[0].foods[0].food_name);
+    // console.log(displayCarts[0].foods)
+
 
     const renderCarts = user ? displayCarts.map((cart) => (
       <CartCard
         id={cart.id}
         key={cart.id}
-        // name={cart.foods[0].food_name}
+        name={cart.foods}
+        setDisplayCarts={setDisplayCarts}
       />
-
     )) : null
-  
+    
 
   return (
     <div>

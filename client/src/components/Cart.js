@@ -17,9 +17,7 @@ function Cart({user}) {
       },[]);
   
   console.log(foods)
-  
-  // console.log(calories)
-  
+    
   function addCalories(){
     let calories=0
     foods.forEach((item) => calories+=item.nf_calories)
@@ -129,9 +127,9 @@ function Cart({user}) {
       <button><strong>End your meal</strong></button>
 
 
-      <ul> Recommended Daily Intake of Nutrition (all in g)
+      <ul> Recommended Daily Intake of Nutrition
         <ul>
-          Calories:
+          Calories: 
           <br></br>
           Fat:
           <br></br>
