@@ -23,7 +23,7 @@ function Profile({user}) {
       <CartCard
         id={cart.id}
         key={cart.id}
-        name={cart.foods[0].food_name}
+        // name={cart.foods[0].food_name}
       />
 
     )) : null

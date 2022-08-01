@@ -5,17 +5,6 @@ import CartFood from './CartFood';
 function Cart({user}) {
 
   const [foods, setFoods] = useState([])
-  // const [calories, setCalories] = useState(0);
-  // const [totalFat, setTotalFat] = useState([]);
-  // const [saturatedFat, setSaturatedFat] = useState([]);
-  // const [cholesterol, setCholesterol] = useState([]);
-  // const [sodium, setSodium] = useState([]);
-  // const [totalCarbohydrate, setTotalCarbohydrate] = useState([]);
-  // const [dietaryFiber, setDietaryFiber] = useState([]);
-  // const [sugars, setSugars]= useState([]);
-  // const [protein, setProtein] = useState([]);
-  // const [potassium, setPotassium] = useState([]);
-  // const [showForm, setShowForm] = useState(false)
 
   useEffect(() => {
     fetch(`/latest-cart`)
@@ -36,6 +25,59 @@ function Cart({user}) {
     foods.forEach((item) => calories+=item.nf_calories)
     console.log(calories)
     return calories
+  }
+
+  function addFat(){
+    let fat=0
+    foods.forEach((item) => fat+=item.nf_total_fat)
+    return fat
+  }
+
+  function addSaturatedFat(){
+    let sats=0
+    foods.forEach((item) => sats+=item.nf_saturated_fat)
+    return sats
+  }
+
+  function addChol(){
+    let chol=0
+    foods.forEach((item) => chol+=item.nf_cholesterol)
+    return chol
+  }
+
+  function addSodium(){
+    let sodium=0
+    foods.forEach((item) => sodium+=item.nf_sodium)
+    return sodium
+  }
+
+  function addCarbs(){
+    let carbs=0
+    foods.forEach((item) => carbs+=item.nf_total_carbohydrate)
+    return carbs
+  }
+
+  function addFiber(){
+    let fiber=0
+    foods.forEach((item) => fiber+=item.nf_dietary_fiber)
+    return fiber
+  }
+
+  function addSugars(){
+    let sugars=0
+    foods.forEach((item) => sugars+=item.nf_sugars)
+    return sugars
+  }
+
+  function addProtein(){
+    let protein=0
+    foods.forEach((item) => protein+=item.nf_protein)
+    return protein
+  }
+  function addPotassium(){
+    let potassium=0
+    foods.forEach((item) => potassium+=item.nf_potassium)
+    return potassium
   }
 
 
@@ -71,19 +113,45 @@ function Cart({user}) {
         }
       
       </div>
+      <h1> All units (except for cal) are in grams</h1>
       <h2>Total Calories: {addCalories()}</h2>
-      <h2>Total Fat:</h2>
-      <h2>Total Saturated Fat: </h2>
-      <h2>Total Cholesterol: </h2>
-      <h2>Total Sodium: </h2>
-      <h2>Total Carbohydrates: </h2>
-      <h2>Total Fiber: </h2>
-      <h2>Total Sugar: </h2>
-      <h2>Total Protein: </h2>
-      <h2>Total Potassium: </h2>
+      <h2>Total Fat: {addFat()}</h2>
+      <h2>Total Saturated Fat: {addSaturatedFat}</h2>
+      <h2>Total Cholesterol: {addChol()} </h2>
+      <h2>Total Sodium: {addSodium()}</h2>
+      <h2>Total Carbohydrates: {addCarbs()}</h2>
+      <h2>Total Fiber: {addFiber()}</h2>
+      <h2>Total Sugar: {addSugars()}</h2>
+      <h2>Total Protein: {addProtein()}</h2>
+      <h2>Total Potassium: {addPotassium()}</h2>
 
 
       <button><strong>End your meal</strong></button>
+
+
+      <ul> Recommended Daily Intake of Nutrition (all in g)
+        <ul>
+          Calories:
+          <br></br>
+          Fat:
+          <br></br>
+          Saturated Fat:
+          <br></br>
+          Cholesterol:
+          <br></br>
+          Sodium:
+          <br></br>
+          Carbohydrate:
+          <br></br>
+          Fiber:
+          <br></br>
+          Sugars:
+          <br></br>
+          Protein:
+          <br></br>
+          Potassium:
+        </ul>
+      </ul>
     </div>
   )
 }
