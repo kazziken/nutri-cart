@@ -21,34 +21,46 @@ function Navbar({ setUser }) {
   // };
       
     return (
-      <div>
-        <div className="">
-          <div className="">
-            <div className="">
-              <div className="nav-item active">
-                <Link exact to="/Home" className="nav-link">
-                  Home
-                </Link>
-              </div>
-              <div className="nav-item">
-                <Link to="/Profile" className="nav-link" >
-                  Profile
-                </Link>
-                </div >
-              <div className="nav-item">
-                <Link to="/Cart" className="nav-link" >
-                Cart
-                </Link>
-              </div >
-              <div className="nav-item">
-                <Link to="/" className="nav-link" onClick={handleLogOut}>
-                  Sign Out
-                </Link>
-              </div>
-                </div>
-              </div>
-            </div>
+    <nav className="navbar navbar-expand-lg navbar-mainbg">
+      <div className="navbar-brand navbar-logo">
+        <Link exact to="/Home" className="nav-link">
+          Home
+        </Link>
+      </div>
+      <div className="nav-item">
+        <Link to="/Profile" className="nav-link" >
+          Profile
+        </Link>
+        </div >
+      <div className="nav-item">
+        <Link to="/Cart" className="nav-link" >
+        Cart
+        </Link>
+      </div >
+      <div className="nav-item">
+        <Link to="/" className="nav-link" onClick={handleLogOut}>
+          Sign Out
+        </Link>
+      </div>
+      <div className="collapse 
+      navbar-collapse"
+      id="navbarSupportedContent">
+        <ul className="navbar-nav ml-auto">
+          <div className="hori-selector">
+            <div className="left"></div>
+            <div className="right"></div>
           </div>
+        </ul>
+        <li className="nav-item active">
+          <Link to="/Profile" className="nav-link" >
+          <i
+          className="fas
+          fa-tachometer-alt">
+          </i>Profile
+          </Link>
+        </li>
+      </div>
+    </nav>
     );
   }
 
