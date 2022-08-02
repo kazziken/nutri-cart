@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import CartCard from './CartCard'
 import {useState} from 'react';
-// import Cart from './Cart';
 
 
 function Profile({user}) {
@@ -15,7 +14,7 @@ function Profile({user}) {
         setDisplayCarts(item);
         console.log(item);
       });
-      }, 
+      },
     []);
 
     // console.log(displayCarts[0].foods[0].food_name);
@@ -36,14 +35,14 @@ function Profile({user}) {
 
   return (
     <div>
-      <h1>{user.username}</h1>
+      <h1 id="username">{user.username}</h1>
       <img
       style={{ width: "160px", height: "160px", borderRadius: "80px" }}
       src={user.avatar}
       alt={user.avatar}
       id="avatar"
       />
-      <h1>My Folders:</h1>
+      <h1 id="folders">My Folders:</h1>
       {renderCarts}
       </div>
   )
