@@ -3,14 +3,8 @@ import Navbar from './Navbar';
 import Searchbar from './Searchbar';
 import FoodCard from './FoodCard';
 import { v4 as uuidv4 } from 'uuid';
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import {styled} from "@mui/material/styles"
+import Button from '@mui/material/Button';
 
-const Item = styled(Card)(({ theme }) => ({
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 
 function Home({user, carts, setCarts, updateCart, selectedCart}) {
   const [commonFood, setCommonFood] = useState([]);
@@ -27,45 +21,7 @@ function Home({user, carts, setCarts, updateCart, selectedCart}) {
       if (data)
         setCreateMeal(true);
     })
-      // setCreateMeal(true);
     },[createCartButton]);
-
-  const commons = commonFood.map((item)=>{
-    return(
-      <div>
-      <Grid item xs={12} sm={6} md={3} lg={25}>
-        <Item>
-        <FoodCard 
-        key={uuidv4()} 
-        item={item} 
-        user={user} 
-        carts={carts}
-        selectedCart={selectedCart} 
-        updateCart={updateCart} 
-        />
-        </Item>
-      </Grid>
-      </div>
-    )
-  })
-  const branded = brandedFood.map((item)=>{
-    return(
-      <div>
-      <Grid item xs={12} sm={6} md={3} lg={25}>
-        <Item>
-        <FoodCard 
-        key={uuidv4()} 
-        item={item} 
-        user={user} 
-        carts={carts}
-        selectedCart={selectedCart} 
-        updateCart={updateCart} 
-        />
-        </Item>
-      </Grid>
-      </div>
-    )
-  })
 
   function handleCreateCart() {
     console.log(user)
@@ -92,23 +48,50 @@ function Home({user, carts, setCarts, updateCart, selectedCart}) {
   }
 
 
-  
-
   return (
     <div>
         <Navbar/>
-        <button onClick={() => handleCreateMeal()}>Create new Cart</button>
+        <h1> Welcome </h1>
+        <h1> {user.username} </h1>
+        <Button variant="contained" color="success" onClick={() => handleCreateMeal()}>Create New Cart</Button>
         {createMeal ? <Searchbar setBrandedFood={setBrandedFood} setCommonFood={setCommonFood}/> : <button onClick={handleCreateMeal}> Start your meal </button> }
-        <Grid className="cont-background" container spacing={4}>
-          <h5>Commons</h5>
-          {commons}
-          <h5>Branded</h5>
-          {branded}
-        </Grid>
-
-
-    </div>
+        <h5>Branded Food</h5>
+        <div className="row row-cols-1 row-cols-md-5 g-3 pictures" style={{marginLeft:"5%"}}>
+              {brandedFood.map((item)=>{
+                  return(
+                    <div className="col">
+                      <FoodCard 
+                      key={uuidv4()} 
+                      item={item} 
+                      user={user} 
+                      carts={carts}
+                      selectedCart={selectedCart} 
+                      updateCart={updateCart} 
+                      />
+                    </div>
+                  )
+                })}
+          </div>
+          <br/>
+        <h5>Common Food</h5>
+        <div className="row row-cols-1 row-cols-md-5 g-3 pictures" style={{marginLeft:"5%"}}>
+              {commonFood.map((item)=>{
+                  return(
+                    <div className="col">
+                      <FoodCard 
+                      key={uuidv4()} 
+                      item={item} 
+                      user={user} 
+                      carts={carts}
+                      selectedCart={selectedCart} 
+                      updateCart={updateCart} 
+                      />
+                    </div>
+                  )
+                })}
+          </div>
+        </div>  
   )
 }
 
-export default Home
+export default Home;

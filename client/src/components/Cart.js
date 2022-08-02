@@ -82,9 +82,7 @@ function Cart({user}) {
   return (
     <div>
       <CreateFoodForm foods={foods} setFoods={setFoods}/>
-      <h1>CART: {user.username} </h1>
       <div className="cart-column">
-
         {
           foods.map(food => {
             return(

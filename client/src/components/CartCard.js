@@ -25,7 +25,7 @@ function CartCard({id, name, displayCarts, setDisplayCarts, time}) {
 
         ))}
 
-<button onClick={()=>onDelete()}> Delete Cart </button>
+        <button onClick={()=>onDelete()}> X </button>
        
     </div>
   )

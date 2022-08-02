@@ -1,6 +1,13 @@
 import React from "react";
 import {useState} from 'react';
-import Card from "@mui/material/Card";
+import IconButton from '@mui/material/IconButton';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Typography from '@mui/material/Typography';
+
 
 
 function FoodCard({user, item, carts, updateCart, selectedCart}) {
@@ -60,28 +67,37 @@ function FoodCard({user, item, carts, updateCart, selectedCart}) {
           console.log(item)
           updateCart(item);
       })
-      
-    
-
-  }
+      }
 
  
   
 
-  const addButton = <button onClick={() => handleAddToCart()}>Add to Cart</button>
+  const addButton = 
+  <div>
+    <IconButton color="primary" aria-label="add to shopping cart" size ="large">
+    <AddShoppingCartIcon onClick={() => handleAddToCart()}>Add to Cart</AddShoppingCartIcon>
+    </IconButton>
+  </div>
 
   return (
-    <Card>
-      <h1>{item.food_name}</h1>
-      <p>{item.food_name} serving size:{item.serving_qty}</p>
-      <img
-        src={item.photo.thumb}
-        alt=""
-        className="images"
-        key={item.tag_id}
-      />
-      {addButton}
-    </Card>
+
+        <Card sx={{ width: 345 }}>
+          <CardMedia
+            component="img"
+            height="194"
+            // width="150"
+            image={item.photo.thumb}
+            alt={item.photo.thumb}
+          />
+          <CardContent>
+            <Typography variant="body2" color="text.secondary">
+            {item.food_name} Serving Size:{item.serving_qty}
+            </Typography>
+          </CardContent>
+          <CardActions disableSpacing>
+            {addButton}
+          </CardActions>
+        </Card>
   );
 }
 

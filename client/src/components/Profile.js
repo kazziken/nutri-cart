@@ -41,6 +41,7 @@ function Profile({user}) {
       style={{ width: "160px", height: "160px", borderRadius: "80px" }}
       src={user.avatar}
       alt={user.avatar}
+      id="avatar"
       />
       <h1>My Folders:</h1>
       {renderCarts}

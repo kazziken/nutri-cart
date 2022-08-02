@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   # delete "/delete-cart-food/:id", to: "cart_foods#destroy"
 
   #foods
-  post "/new-food", to: "foods#create" #creates a new food
+  post "/new-food", to: "foods#new_food" #creates a new food
   delete "/delete-cart-food/:id", to: "foods#destroy" #WORKS FOR DELETING CURRENT CART ITEMS
 
 

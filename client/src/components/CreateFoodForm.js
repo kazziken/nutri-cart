@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from '@mui/material/Button';
 
 function CreateFoodForm({ foods, setFoods }) {
   const [foodName, setFoodName] = useState("");
@@ -58,9 +59,6 @@ function CreateFoodForm({ foods, setFoods }) {
               id="form2Example1"
               className="form-control"
             />
-            <label className="form-label text-white">
-              <strong>Food Name</strong>
-            </label>
           </div>
 
           <div className="form-outline mb-4">
@@ -72,9 +70,6 @@ function CreateFoodForm({ foods, setFoods }) {
               placeholder="Enter Food Picture URL"
               onChange={(e) => setPhotoUrl(e.target.value)}
             />
-            <label className="form-label text-white">
-              <strong>Picture URL</strong>
-            </label>
           </div>
 
           <div className="form-outline mb-4">
@@ -86,9 +81,6 @@ function CreateFoodForm({ foods, setFoods }) {
               placeholder="Enter Calories"
               onChange={(e) => setCalories(e.target.value)}
             />
-            <label className="form-label text-white">
-              <strong>Calories</strong>
-            </label>
           </div>
 
           <div className="form-outline mb-4">
@@ -100,9 +92,7 @@ function CreateFoodForm({ foods, setFoods }) {
               placeholder="Enter Saturated Fat"
               onChange={(e) => setSaturatedFat(e.target.value)}
             />
-            <label className="form-label text-white">
-              <strong>Saturated Fat</strong>
-            </label>
+
           </div>
 
           <div className="form-outline mb-4">
@@ -114,9 +104,6 @@ function CreateFoodForm({ foods, setFoods }) {
               placeholder="Enter Cholesterol"
               onChange={(e) => setCholesterol(e.target.value)}
             />
-            <label className="form-label text-white">
-              <strong>Total Fat</strong>
-            </label>
           </div>
 
           <div className="form-outline mb-4">
@@ -128,9 +115,6 @@ function CreateFoodForm({ foods, setFoods }) {
               placeholder="Enter Total Fat"
               onChange={(e) => setTotalFat(e.target.value)}
             />
-            <label className="form-label text-white" >
-              <strong>Total Fat</strong>
-            </label>
           </div>
 
           <div className="form-outline mb-4">
@@ -142,9 +126,7 @@ function CreateFoodForm({ foods, setFoods }) {
               placeholder="Enter Total Carbohydrate"
               onChange={(e) => setTotalCarbohydrate(e.target.value)}
             />
-            <label className="form-label text-white">
-              <strong>Total Carbohydrate</strong>
-            </label>
+
           </div>
 
           <div className="form-outline mb-4">
@@ -156,9 +138,6 @@ function CreateFoodForm({ foods, setFoods }) {
               placeholder="Enter Sodium"
               onChange={(e) => setSodium(e.target.value)}
             />
-            <label className="form-label text-white">
-              <strong>Sodium</strong>
-            </label>
           </div>
 
           <div className="form-outline mb-4">
@@ -170,9 +149,6 @@ function CreateFoodForm({ foods, setFoods }) {
               placeholder="Enter Dietary fiber"
               onChange={(e) => setDietaryFiber(e.target.value)}
             />
-            <label className="form-label text-white">
-              <strong>Dietary Fiber</strong>
-            </label>
           </div>
           
           <div className="form-outline mb-4">
@@ -184,9 +160,6 @@ function CreateFoodForm({ foods, setFoods }) {
               placeholder="Enter Sugars"
               onChange={(e) => setSugars(e.target.value)}
             />
-            <label className="form-label text-white">
-              <strong>Sugars</strong>
-            </label>
           </div>
 
           <div className="form-outline mb-4">
@@ -198,9 +171,6 @@ function CreateFoodForm({ foods, setFoods }) {
               placeholder="Enter Protein"
               onChange={(e) => setProtein(e.target.value)}
             />
-            <label className="form-label text-white">
-              <strong>Protein</strong>
-            </label>
           </div>
 
           <div className="form-outline mb-4">
@@ -213,13 +183,12 @@ function CreateFoodForm({ foods, setFoods }) {
               onChange={(e) => setPotassium(e.target.value)}
             />
             <label className="form-label text-white">
-              <strong>Potassium</strong>
             </label>
           </div>
 
-          <button type="submit" variant="contained">
+          <Button type="submit" variant="contained" color="success">
             + Create Food
-          </button>
+          </Button>
         </form>
       </div>
     </div>

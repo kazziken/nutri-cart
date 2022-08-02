@@ -28,11 +28,11 @@ function SearchBar({setBrandedFood, setCommonFood}) {
       });
     }
 
-  const BarStyling = {width:"20rem",background:"#F2F1F9", border:"none", padding:"0.5rem"};
+  const BarStyling = {width:"30rem", height:"4rem",background:"#F2F1F9", border:"none", padding:"0.5rem"};
 
 
   return (
-    <div>
+    <div className='search-bar'>
       <div className="ui fluid category search">
         <div className="ui icon input">
           <input className="prompt" type="text" placeholder="Search food..." style={BarStyling} onChange={(e) => handleOnSearch(e.target.value)}/>

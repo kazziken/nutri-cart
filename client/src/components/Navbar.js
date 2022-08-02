@@ -59,7 +59,6 @@ function Navbar({setUser}) {
   <nav className="navbar navbar-expand-lg navbar-mainbg">
     
       <Link className="navbar-brand navbar-logo" to="/" exact>
-        
       </Link>
 
       <button 
@@ -104,7 +103,7 @@ function Navbar({setUser}) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/" exact>
+              <Link className="nav-link" to="/" exact onClick={handleLogOut}>
                 <i 
                 className="far fa-chart-bar">
                 </i>Logout
