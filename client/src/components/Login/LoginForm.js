@@ -33,33 +33,39 @@ function LoginForm({ setUser }) {
   }
 
   return (
-    <div className="Auth-form-container">
-      <form onSubmit={handleSubmit} className="Auth-form">
-        <div className="Auth-form-content">
+      <form onSubmit={handleSubmit} className="max-w-[400px] w-full mx-auto bg-white-900 p-8 px-8 rounded-lg">
+        <h2 className='text-4x1 dark:text-white font-bold text-center'>WELCOME</h2>
+        <div className='flex flex-col text-black-400 py-2'>
           <label>
             Username
+            </label>
             <input
               type="text"
               value={username}
+              className= 'rounded-lg bg-white-700 mt-2 p-2 focus:border-blue-500 focus:bg-white-800 focus:outline-none'
               onChange={(e) => setUsername(e.target.value)}
             ></input>
-          </label>
-          <br />
+         </div>
+         <div className='flex flex-col text-black-400 py-2'>
           <label>
             Password
+          </label>
             <input
               type="password"
               value={password}
+              className= 'rounded-lg bg-white-700 mt-2 p-2 focus:border-blue-500 focus:bg-white-800 focus:outline-none'
               onChange={(e) => setPassword(e.target.value)}
             ></input>
-          </label>
+          </div>
+          <div className='flex justify-between text-black-400 py-2'>
+            <p><input type="checkbox"></input> Remember Me </p>
+            <p> Forgot Password </p>
+          </div>
           <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
           {errors.map((err) => (
             <alert key={err}>"Invalid information"</alert>
           ))}
-        </div>
       </form>
-    </div>
   );
 }
 

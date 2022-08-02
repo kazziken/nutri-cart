@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CreateFoodForm({ user, item }) {
+function CreateFoodForm({ foods, setFoods }) {
   const [foodName, setFoodName] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [calories, setCalories] = useState("");
@@ -14,11 +14,9 @@ function CreateFoodForm({ user, item }) {
   const [protein, setProtein] = useState("");
   const [potassium, setPotassium] = useState("");
   
-  const [newFood, setNewFood] = useState([]);
-
   function handleNewFood(e) {
     e.preventDefault();
-    fetch("/new-fod", {
+    fetch("/new-food", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +39,7 @@ function CreateFoodForm({ user, item }) {
       .then((res) => res.json())
       .then((item) => {
         // console.log(res);
-        setNewFood([...newFood, item]);
+        setFoods([...foods, item]);
       })
       .catch((err) => console.error(err));
   }

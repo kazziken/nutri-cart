@@ -3,6 +3,14 @@ import Navbar from './Navbar';
 import Searchbar from './Searchbar';
 import FoodCard from './FoodCard';
 import { v4 as uuidv4 } from 'uuid';
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import {styled} from "@mui/material/styles"
+
+const Item = styled(Card)(({ theme }) => ({
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+}));
 
 function Home({user, carts, setCarts, updateCart, selectedCart}) {
   const [commonFood, setCommonFood] = useState([]);
@@ -24,26 +32,38 @@ function Home({user, carts, setCarts, updateCart, selectedCart}) {
 
   const commons = commonFood.map((item)=>{
     return(
-      <FoodCard 
-      key={uuidv4()} 
-      item={item} 
-      user={user} 
-      carts={carts}
-      selectedCart={selectedCart} 
-      updateCart={updateCart} 
-      />
+      <div>
+      <Grid item xs={12} sm={6} md={3} lg={25}>
+        <Item>
+        <FoodCard 
+        key={uuidv4()} 
+        item={item} 
+        user={user} 
+        carts={carts}
+        selectedCart={selectedCart} 
+        updateCart={updateCart} 
+        />
+        </Item>
+      </Grid>
+      </div>
     )
   })
   const branded = brandedFood.map((item)=>{
     return(
-      <FoodCard 
-      key={uuidv4()} 
-      item={item} 
-      user={user} 
-      carts={carts}
-      selectedCart={selectedCart}
-      updateCart={updateCart} 
-      />
+      <div>
+      <Grid item xs={12} sm={6} md={3} lg={25}>
+        <Item>
+        <FoodCard 
+        key={uuidv4()} 
+        item={item} 
+        user={user} 
+        carts={carts}
+        selectedCart={selectedCart} 
+        updateCart={updateCart} 
+        />
+        </Item>
+      </Grid>
+      </div>
     )
   })
 
@@ -62,7 +82,7 @@ function Home({user, carts, setCarts, updateCart, selectedCart}) {
       .then((data) => {
       setCarts(data)
       setCreateMeal(true);
-    setCreateCartButton(!createCartButton);
+      setCreateCartButton(!createCartButton);
       })
   }
 
@@ -79,12 +99,12 @@ function Home({user, carts, setCarts, updateCart, selectedCart}) {
         <Navbar/>
         <button onClick={() => handleCreateMeal()}>Create new Cart</button>
         {createMeal ? <Searchbar setBrandedFood={setBrandedFood} setCommonFood={setCommonFood}/> : <button onClick={handleCreateMeal}> Start your meal </button> }
-        <div className='food-container'>
-          <h1>Commons</h1>
+        <Grid className="cont-background" container spacing={4}>
+          <h5>Commons</h5>
           {commons}
-          <h1>Branded</h1>
+          <h5>Branded</h5>
           {branded}
-        </div>
+        </Grid>
 
 
     </div>

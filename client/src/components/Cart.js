@@ -14,7 +14,7 @@ function Cart({user}) {
         setFoods(data.foods);
         console.log(data.foods);
       });
-      },[]);
+      },[CreateFoodForm]);
   
   console.log(foods)
     
@@ -81,7 +81,7 @@ function Cart({user}) {
 
   return (
     <div>
-      <CreateFoodForm />
+      <CreateFoodForm foods={foods} setFoods={setFoods}/>
       <h1>CART: {user.username} </h1>
       <div className="cart-column">
 
@@ -124,32 +124,11 @@ function Cart({user}) {
       <h2>Total Potassium: {addPotassium()}</h2>
 
 
-
-
-      <ul> 
-        <strong>Recommended Daily Intake of Nutrition per </strong>
-        <ul>
-          Calories: 2500 calories
-          <br></br>
-          Fat: 30 
-          <br></br>
-          Saturated Fat:
-          <br></br>
-          Cholesterol:
-          <br></br>
-          Sodium:
-          <br></br>
-          Carbohydrate:
-          <br></br>
-          Fiber:
-          <br></br>
-          Sugars:
-          <br></br>
-          Protein:
-          <br></br>
-          Potassium:
-        </ul>
-      </ul>
+      <strong>Recommended Daily Intake of Nutrition by the NIH</strong>
+        <br></br>
+        <a href='https://health.gov/sites/default/files/2019-09/Appendix-E3-1-Table-A4.pdf'>
+          Link
+          </a>
     </div>
   )
 }

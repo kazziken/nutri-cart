@@ -1,5 +1,7 @@
 import React from "react";
 import {useState} from 'react';
+import Card from "@mui/material/Card";
+
 
 function FoodCard({user, item, carts, updateCart, selectedCart}) {
 
@@ -69,7 +71,7 @@ function FoodCard({user, item, carts, updateCart, selectedCart}) {
   const addButton = <button onClick={() => handleAddToCart()}>Add to Cart</button>
 
   return (
-    <div>
+    <Card>
       <h1>{item.food_name}</h1>
       <p>{item.food_name} serving size:{item.serving_qty}</p>
       <img
@@ -79,7 +81,7 @@ function FoodCard({user, item, carts, updateCart, selectedCart}) {
         key={item.tag_id}
       />
       {addButton}
-    </div>
+    </Card>
   );
 }
 

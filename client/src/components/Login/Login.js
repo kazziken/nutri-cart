@@ -6,14 +6,11 @@ function Login({ setUser }) {
   const [showLogin, setShowLogin] = useState(true);
 
     return (
-      <div>
-          <div className="logo">
-          <img
-            src="https://i.imgur.com/CKyx7bg.png"
-            className="logo"
-            alt="logo"
-          />
+      <div className='grid grid-cols-1 sm:grid-cols-2'>
+        <div className='hidden sm:block'>
+          <img className="w-full h-full object cover" src={"https://i.imgur.com/CKyx7bg.png"}/>
         </div>
+        <div className='bg-white-800 flex flex-col justify-center'>
         {showLogin ? (
         <>
           <LoginForm setUser={setUser} />
@@ -36,6 +33,7 @@ function Login({ setUser }) {
         </>
       )}
 
+      </div>
     </div>
     );
 }
