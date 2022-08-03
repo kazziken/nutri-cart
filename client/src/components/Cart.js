@@ -85,8 +85,8 @@ function Cart({user}) {
     <div>
       <div id="nutrition-fact">
       <Container fluid className="words">
-        <h2>Nutritional Facts: </h2> 
-        <h5>Meal's Total Calories: {addCalories()}</h5>
+        <h2>Nutritional Facts:</h2> 
+        <h5>Total Calories: {addCalories()}</h5>
         <h5>Total Fat: {addFat()}</h5>
         <h5>Total Saturated Fat: {addSaturatedFat()}</h5>
         <h5>Total Carbohydrates: {addCarbs()} </h5>

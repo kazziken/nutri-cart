@@ -7,8 +7,8 @@ function Login({ setUser }) {
 
     return (
       <div className='grid grid-cols-1 sm:grid-cols-2'>
-        <div className='hidden sm:block'>
-          <img className="w-full h-full object cover" src={"https://i.imgur.com/CKyx7bg.png"}/>
+        <div className='hidden sm:block' id="login-img">
+          <img className="w-full h-full object cover" src={"https://i.imgur.com/CKyx7bg.png"} id="logo"/>
         </div>
         <div className='bg-white-800 flex flex-col justify-center'>
         {showLogin ? (
