@@ -1,6 +1,8 @@
 import React, {useState,useEffect} from 'react'
 import CreateFoodForm from './CreateFoodForm';
 import CartFood from './CartFood';
+import Container from '@mui/material/Container';
+
 
 function Cart({user}) {
 
@@ -81,7 +83,27 @@ function Cart({user}) {
 
   return (
     <div>
-      <CreateFoodForm foods={foods} setFoods={setFoods}/>
+      <div id="nutrition-fact">
+      <Container fluid className="words">
+        <h2>Nutritional Facts: </h2> 
+        <h5>Meal's Total Calories: {addCalories()}</h5>
+        <h5>Total Fat: {addFat()}</h5>
+        <h5>Total Saturated Fat: {addSaturatedFat()}</h5>
+        <h5>Total Carbohydrates: {addCarbs()} </h5>
+        <h5>Total Cholesterol: {addChol()}</h5>
+        <h5>Total Dietary Fiber: {addFiber()}</h5>
+        <h5>Total Sodium: {addSodium()}</h5>
+        <h5>Total Sugar: {addSugars()}</h5>
+        <h5>Total Protein: {addProtein()}</h5>
+        <h5>Total Potassium: {addPotassium()}</h5>
+        <a href='https://health.gov/sites/default/files/2019-09/Appendix-E3-1-Table-A4.pdf'>
+        <strong>Recommended Daily Intake of Nutrition by the NIH</strong>
+          </a>
+      </Container>
+      </div>
+
+
+        <br></br>
       <div className="cart-column">
         {
           foods.map(food => {
@@ -109,24 +131,7 @@ function Cart({user}) {
         }
       
       </div>
-      <h1> All units (except for cal) are in grams</h1>
-      <h2>Total Calories: {addCalories()}</h2>
-      <h2>Total Fat: {addFat()}</h2>
-      <h2>Total Saturated Fat: {addSaturatedFat}</h2>
-      <h2>Total Cholesterol: {addChol()} </h2>
-      <h2>Total Sodium: {addSodium()}</h2>
-      <h2>Total Carbohydrates: {addCarbs()}</h2>
-      <h2>Total Fiber: {addFiber()}</h2>
-      <h2>Total Sugar: {addSugars()}</h2>
-      <h2>Total Protein: {addProtein()}</h2>
-      <h2>Total Potassium: {addPotassium()}</h2>
-
-
-      <strong>Recommended Daily Intake of Nutrition by the NIH</strong>
-        <br></br>
-        <a href='https://health.gov/sites/default/files/2019-09/Appendix-E3-1-Table-A4.pdf'>
-          Link
-          </a>
+      <CreateFoodForm foods={foods} setFoods={setFoods}/>
     </div>
   )
 }

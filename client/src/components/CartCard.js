@@ -6,6 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
 
 function CartCard({id, name, displayCarts, setDisplayCarts, time}) {
 
@@ -19,7 +20,8 @@ function CartCard({id, name, displayCarts, setDisplayCarts, time}) {
 
   return (
     <div>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} id="tableContainer">
+      <p id="time">Created on {time}</p>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -60,19 +62,13 @@ function CartCard({id, name, displayCarts, setDisplayCarts, time}) {
           </TableBody>
         </Table>
       </TableContainer>
-        <button onClick={()=>onDelete()}> X </button>
+      <Button variant="outlined" color="error" id='delete-cart-btn'>
+        <button onClick={()=>onDelete()}> Delete Cart </button>
+      </Button>
     </div>
   )
 }
 
 export default CartCard;
 
-{/* <p>Cart#{id}</p>
-<p>Created On: {time}</p> 
-{name.map(food => (
-  <div>          
-    <p>{food.food_name}</p>
-    <p>{food.nf_calories}</p>
-  </div>
-))} */}
 

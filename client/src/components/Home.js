@@ -43,7 +43,6 @@ function Home({user, carts, setCarts, updateCart, selectedCart}) {
   }
 
   function handleCreateMeal(){
-    
     handleCreateCart();
   }
 
@@ -53,9 +52,9 @@ function Home({user, carts, setCarts, updateCart, selectedCart}) {
         <Navbar/>
         <h1> Welcome </h1>
         <h1> {user.username} </h1>
-        <Button variant="contained" color="success" onClick={() => handleCreateMeal()}>Create New Cart</Button>
+        <Button variant="contained" color="success" onClick={() => handleCreateMeal()}>Start a new cart</Button>
         {createMeal ? <Searchbar setBrandedFood={setBrandedFood} setCommonFood={setCommonFood}/> : <button onClick={handleCreateMeal}> Start your meal </button> }
-        <h5>Branded Food</h5>
+        <h5 id="brand">Branded Food</h5>
         <div className="row row-cols-1 row-cols-md-5 g-3 pictures" style={{marginLeft:"5%"}}>
               {brandedFood.map((item)=>{
                   return(
@@ -73,7 +72,7 @@ function Home({user, carts, setCarts, updateCart, selectedCart}) {
                 })}
           </div>
           <br/>
-        <h5>Common Food</h5>
+        <h5 id="common">Common Food</h5>
         <div className="row row-cols-1 row-cols-md-5 g-3 pictures" style={{marginLeft:"5%"}}>
               {commonFood.map((item)=>{
                   return(
