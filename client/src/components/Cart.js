@@ -23,7 +23,7 @@ function Cart({user, carts, updateCart}) {
     
   function addCalories(){
     let calories=0
-    foods.forEach((item) => calories+=item.nf_calories)
+    foods.forEach((item) => calories+=Math.floor(item.nf_calories))
     console.log(calories)
     return calories
   }
@@ -87,9 +87,39 @@ function Cart({user, carts, updateCart}) {
       <div id="nutrition-fact">
       <Container fluid className="words">
         <h2>Nutritional Facts:</h2> 
-        <h5>Total Calories: {addCalories()}</h5>
-        <h5>Total Fat: {addFat()}</h5>
-        <h5>Total Saturated Fat: {addSaturatedFat()}</h5>
+
+        <div className='nutri-fact'>
+          <h2 style={{fontWeight: 'bold'}}>Calories</h2>
+          <h2 style={{fontWeight: 'bold'}}>{addCalories()}</h2>
+        </div>
+
+        <hr style={{
+            margin: 0,
+            color: 'black',
+            height: 5
+        }}></hr>
+
+        <div className='nutri-fact'>
+          <h5 style={{fontWeight: 'bold'}}>Total Fat: </h5>
+          <h5 style={{fontWeight: 'bold'}}>{addFat()}</h5>
+        </div>
+        <hr style={{
+            margin: 0,
+            color: 'black',
+            height: 5
+        }}></hr>
+
+        <div className='nutri-fact'>
+          <h5 style={{fontWeight: 'bold'}}>Total Saturated Fat: </h5>
+          <h5 style={{fontWeight: 'bold'}}>{addSaturatedFat()}</h5>
+        </div>
+        <hr style={{
+            margin: 0,
+            color: 'black',
+            height: 5
+        }}></hr>
+        
+        
         <h5>Total Carbohydrates: {addCarbs()} </h5>
         <h5>Total Cholesterol: {addChol()}</h5>
         <h5>Total Dietary Fiber: {addFiber()}</h5>

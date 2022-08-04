@@ -151,12 +151,16 @@ i {
 /* cart food styles */
 
 #cart-food-container{
+
   width:60%;
   margin-left: auto;
   margin-right: auto;
 }
 
 #cart-food-img{
+  padding-top: 15px;
+  height: 350px;
+  width: auto;
   margin-left: auto;
   margin-right: auto;
 }
@@ -224,3 +228,11 @@ h5 {
 #logo{
   width: 100%
 }
+
+
+.nutri-fact{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
