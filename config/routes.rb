@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :cart_foods
   resources :foods #works
   resources :users #works
-  # resources :carts
+  resources :carts
 
   get '*path',
       to: 'fallback#index',
@@ -21,13 +21,11 @@ Rails.application.routes.draw do
   get '/current-cart', to: "carts#show" #displays current cart
   post "/create-cart", to: "carts#create" #CREATES NEW INSTANCE OF A CART
   post '/create-cart-food', to: "carts#new_cart_food" #CREATES NEW CART FOOD PRODUCT THAT ALSO ADDS TO CURRENT CART
-  patch '/carts/:id', to: "carts#update"
   delete "/carts/:id", to: "carts#destroy"
   
   #cart_foods
   get "/all-carts", to: "cart_foods#user_cart_foods" # WORKS FOR PROFILE, displays all user_carts + foods
   get "/latest-cart", to: "cart_foods#user_latest_cart" # WORKS FOR CART, DISPLAYS THE CART THE USER IS CURRENTLY ON
-  patch '/update-cart-foods', to: "cart_foods#update"
   # delete "/delete-cart-food/:id", to: "cart_foods#destroy"
 
   #foods

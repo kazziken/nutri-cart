@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from '@mui/material/Button';
 
-function CreateFoodForm({ foods, setFoods }) {
+function CreateFoodForm({ foods, setFoods, carts, change, setChange }) {
   const [foodName, setFoodName] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [calories, setCalories] = useState("");
@@ -14,15 +14,23 @@ function CreateFoodForm({ foods, setFoods }) {
   const [sugars, setSugars]= useState("");
   const [protein, setProtein] = useState("");
   const [potassium, setPotassium] = useState("");
+
+  console.log(carts.id)
   
   function handleNewFood(e) {
+
     e.preventDefault();
-    fetch("/new-food", {
+    fetch('/current-cart')
+      .then((res) => res.json())
+      .then ((data) => {console.log(data)
+    
+      fetch("/create-cart-food", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        id: data.id,
         food_name: foodName,
         photo_url: photoUrl,
         nf_calories: calories,
@@ -34,22 +42,37 @@ function CreateFoodForm({ foods, setFoods }) {
         nf_dietary_fiber: dietaryFiber, 
         nf_sugars: sugars, 
         nf_protein: protein, 
-        nf_potassium: potassium,     
+        nf_potassium: potassium,
       }),
     })
       .then((res) => res.json())
-      .then((item) => {
-        // console.log(res);
-        setFoods([...foods, item]);
-      })
-      .catch((err) => console.error(err));
-  }
+      .then((item) => {    
+        setFoods([...foods, item])
+        setChange(!change)
+      })})}
+      //   fetch("/cart_foods", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       cart_id: carts.id,
+      //       food_id: item.id,
+      //     })
+      //     .then((res) => res.json())
+      //     .then((item) => {
+      //       updateCart(item);
+      //   })
+      // })
+      // }) 
+    
+  
 
 
   return (
     <div className="row mb-4">
       <div className="col d-flex justify-content-center">
-        <form onSubmit={(e) => handleNewFood(e)}>
+        <form onSubmit={(e) => handleNewFood(e)} >
           <div className="form-outline mb-4">
             <input
               type="foodName"

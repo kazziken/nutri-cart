@@ -24,6 +24,7 @@ class FoodsController < ApplicationController
         render json: new_food, status: :created
     end
 
+
     def destroy #DELETING THE INSTANCE OF A FOOD IN A CART
         food = find_food
         food.destroy
@@ -33,7 +34,8 @@ class FoodsController < ApplicationController
     private
     
     def food_params
-        params.permit(:food_name, 
+        params.permit(
+            :food_name, 
             :photo_url, 
             :nf_calories, 
             :nf_total_fat, 

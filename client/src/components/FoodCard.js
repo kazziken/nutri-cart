@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 
 
 
-function FoodCard({user, item, carts, updateCart, selectedCart}) {
+function FoodCard({user, item, carts, updateCart}) {
 
   const [nutrition, setNutrition] = useState([])
   

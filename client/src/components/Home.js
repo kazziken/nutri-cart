@@ -54,11 +54,29 @@ function Home({user, carts, setCarts, updateCart, selectedCart}) {
         <h1> {user.username} </h1>
         <Button variant="contained" color="success" onClick={() => handleCreateMeal()}>Start a new cart</Button>
         {createMeal ? <Searchbar setBrandedFood={setBrandedFood} setCommonFood={setCommonFood}/> : <button onClick={handleCreateMeal}> Start your meal </button> }
+          <h5 id="common">Common Food</h5>
+          <div className="row row-cols-1 row-cols-md-5 g-3 pictures" style={{marginLeft:"5%"}}>
+                {commonFood.map((item)=>{
+                    return(
+                      <div className="col">
+                        <FoodCard 
+                        key={uuidv4()} 
+                        item={item} 
+                        user={user} 
+                        carts={carts}
+                        selectedCart={selectedCart} 
+                        updateCart={updateCart} 
+                        />
+                      </div>
+                    )
+                  })}
+            </div>
+            <br/>
         <h5 id="brand">Branded Food</h5>
         <div className="row row-cols-1 row-cols-md-5 g-3 pictures" style={{marginLeft:"5%"}}>
               {brandedFood.map((item)=>{
-                  return(
-                    <div className="col">
+                return(
+                  <div className="col">
                       <FoodCard 
                       key={uuidv4()} 
                       item={item} 
@@ -72,24 +90,7 @@ function Home({user, carts, setCarts, updateCart, selectedCart}) {
                 })}
           </div>
           <br/>
-        <h5 id="common">Common Food</h5>
-        <div className="row row-cols-1 row-cols-md-5 g-3 pictures" style={{marginLeft:"5%"}}>
-              {commonFood.map((item)=>{
-                  return(
-                    <div className="col">
-                      <FoodCard 
-                      key={uuidv4()} 
-                      item={item} 
-                      user={user} 
-                      carts={carts}
-                      selectedCart={selectedCart} 
-                      updateCart={updateCart} 
-                      />
-                    </div>
-                  )
-                })}
-          </div>
-        </div>  
+                </div>  
   )
 }
 

@@ -4,9 +4,10 @@ import CartFood from './CartFood';
 import Container from '@mui/material/Container';
 
 
-function Cart({user}) {
+function Cart({user, carts, updateCart}) {
 
   const [foods, setFoods] = useState([])
+  const [change, setChange] = useState(false)
 
   useEffect(() => {
     fetch(`/latest-cart`)
@@ -16,8 +17,8 @@ function Cart({user}) {
         setFoods(data.foods);
         console.log(data.foods);
       });
-      },[CreateFoodForm]);
-  
+      },[]);
+  console.log(carts)
   console.log(foods)
     
   function addCalories(){
@@ -131,7 +132,7 @@ function Cart({user}) {
         }
       
       </div>
-      <CreateFoodForm foods={foods} setFoods={setFoods}/>
+      <CreateFoodForm foods={foods} setFoods={setFoods} user={user} carts={carts} updateCart={updateCart} change={change} setChange={setChange}/>
     </div>
   )
 }
