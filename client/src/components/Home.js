@@ -1,6 +1,6 @@
 import React,{ useEffect, useState } from 'react'
 import Navbar from './Navbar';
-import Searchbar from './SearchBar';
+import SearchBar from './SearchBar';
 import FoodCard from './FoodCard';
 import { v4 as uuidv4 } from 'uuid';
 import Button from '@mui/material/Button';
