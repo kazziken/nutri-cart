@@ -92,7 +92,7 @@ function SignupForm({ setUser }) {
           className= 'rounded-lg bg-white-700 mt-2 p-2 focus:border-blue-500 focus:bg-white-800 focus:outline-none' 
           onChange={(e) => setPasswordConfirmation(e.target.value)}></input>
         </label>
-        <button type="submit" value="Submit"></button>
+        <button type="submit" value="Submit">Submit</button>
       </form>
   );
 }

@@ -10,7 +10,7 @@ function Login({ setUser }) {
         <div className='hidden sm:block' id="login-img">
           <img className="w-full h-full object cover" src={"https://i.imgur.com/CKyx7bg.png"} id="logo"/>
         </div>
-        <div className='bg-white-800 flex flex-col justify-center'>
+        <div className='bg-white-800 flex flex-col justify-center' id="login-form">
         {showLogin ? (
         <>
           <LoginForm setUser={setUser} />

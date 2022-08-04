@@ -30,54 +30,54 @@ function Cart({user, carts, updateCart}) {
 
   function addFat(){
     let fat=0
-    foods.forEach((item) => fat+=item.nf_total_fat)
+    foods.forEach((item) => fat+=Math.floor(item.nf_total_fat))
     return fat
   }
 
   function addSaturatedFat(){
     let sats=0
-    foods.forEach((item) => sats+=item.nf_saturated_fat)
+    foods.forEach((item) => sats+=Math.floor(item.nf_saturated_fat))
     return sats
   }
 
   function addChol(){
     let chol=0
-    foods.forEach((item) => chol+=item.nf_cholesterol)
+    foods.forEach((item) => chol+=Math.floor(item.nf_cholesterol))
     return chol
   }
 
   function addSodium(){
     let sodium=0
-    foods.forEach((item) => sodium+=item.nf_sodium)
+    foods.forEach((item) => sodium+=Math.floor(item.nf_sodium))
     return sodium
   }
 
   function addCarbs(){
     let carbs=0
-    foods.forEach((item) => carbs+=item.nf_total_carbohydrate)
+    foods.forEach((item) => carbs+=Math.floor(item.nf_total_carbohydrate))
     return carbs
   }
 
   function addFiber(){
     let fiber=0
-    foods.forEach((item) => fiber+=item.nf_dietary_fiber)
+    foods.forEach((item) => fiber+=Math.floor(item.nf_dietary_fiber))
     return fiber
   }
 
   function addSugars(){
     let sugars=0
-    foods.forEach((item) => sugars+=item.nf_sugars)
+    foods.forEach((item) => sugars+=Math.floor(item.nf_sugars))
     return sugars
   }
 
   function addProtein(){
     let protein=0
-    foods.forEach((item) => protein+=item.nf_protein)
+    foods.forEach((item) => protein+=Math.floor(item.nf_protein))
     return protein
   }
   function addPotassium(){
     let potassium=0
-    foods.forEach((item) => potassium+=item.nf_potassium)
+    foods.forEach((item) => potassium+=Math.floor(item.nf_potassium))
     return potassium
   }
 
@@ -86,7 +86,7 @@ function Cart({user, carts, updateCart}) {
     <div>
       <div id="nutrition-fact">
       <Container fluid className="words">
-        <h2>Nutritional Facts:</h2> 
+        <h2 style={{fontWeight: 'bold'}}>Nutritional Facts:</h2> 
 
         <div className='nutri-fact'>
           <h2 style={{fontWeight: 'bold'}}>Calories</h2>
@@ -118,15 +118,76 @@ function Cart({user, carts, updateCart}) {
             color: 'black',
             height: 5
         }}></hr>
+
+<div className='nutri-fact'>
+          <h5 style={{fontWeight: 'bold'}}>Total Carbohydrate: </h5>
+          <h5 style={{fontWeight: 'bold'}}>{addCarbs()}</h5>
+        </div>
+        <hr style={{
+            margin: 0,
+            color: 'black',
+            height: 5
+        }}></hr>
         
-        
-        <h5>Total Carbohydrates: {addCarbs()} </h5>
-        <h5>Total Cholesterol: {addChol()}</h5>
-        <h5>Total Dietary Fiber: {addFiber()}</h5>
-        <h5>Total Sodium: {addSodium()}</h5>
-        <h5>Total Sugar: {addSugars()}</h5>
-        <h5>Total Protein: {addProtein()}</h5>
-        <h5>Total Potassium: {addPotassium()}</h5>
+        <div className='nutri-fact'>
+          <h5 style={{fontWeight: 'bold'}}>Total Cholesterol: </h5>
+          <h5 style={{fontWeight: 'bold'}}>{addChol()}</h5>
+        </div>
+        <hr style={{
+            margin: 0,
+            color: 'black',
+            height: 5
+        }}></hr>
+
+        <div className='nutri-fact'>
+          <h5 style={{fontWeight: 'bold'}}>Total Fiber: </h5>
+          <h5 style={{fontWeight: 'bold'}}>{addFiber()}</h5>
+        </div>
+        <hr style={{
+            margin: 0,
+            color: 'black',
+            height: 5
+        }}></hr>
+
+        <div className='nutri-fact'>
+          <h5 style={{fontWeight: 'bold'}}>Total Sodium: </h5>
+          <h5 style={{fontWeight: 'bold'}}>{addSodium()}</h5>
+        </div>
+        <hr style={{
+            margin: 0,
+            color: 'black',
+            height: 5
+        }}></hr>
+
+        <div className='nutri-fact'>
+          <h5 style={{fontWeight: 'bold'}}>Total Sugars: </h5>
+          <h5 style={{fontWeight: 'bold'}}>{addSugars()}</h5>
+        </div>
+        <hr style={{
+            margin: 0,
+            color: 'black',
+            height: 5
+        }}></hr>
+
+        <div className='nutri-fact'>
+          <h5 style={{fontWeight: 'bold'}}>Total Protein: </h5>
+          <h5 style={{fontWeight: 'bold'}}>{addProtein()}</h5>
+        </div>
+        <hr style={{
+            margin: 0,
+            color: 'black',
+            height: 5
+        }}></hr>
+
+        <div className='nutri-fact'>
+          <h5 style={{fontWeight: 'bold'}}>Total Potassium: </h5>
+          <h5 style={{fontWeight: 'bold'}}>{addPotassium()}</h5>
+        </div>
+        <hr style={{
+            margin: 0,
+            color: 'black',
+            height: 5
+        }}></hr>
         <a href='https://health.gov/sites/default/files/2019-09/Appendix-E3-1-Table-A4.pdf'>
         <strong>Recommended Daily Intake of Nutrition by the NIH</strong>
           </a>
