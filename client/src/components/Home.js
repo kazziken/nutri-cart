@@ -55,7 +55,7 @@ function Home({user, carts, setCarts, updateCart, selectedCart}) {
         <h1> Welcome </h1>
         <h1> {user.username} </h1>
         <Button variant="contained" color="success" onClick={() => handleCreateMeal()}>Start a new cart</Button>
-        {createMeal ? <Searchbar setBrandedFood={setBrandedFood} setCommonFood={setCommonFood}/> : <button onClick={handleCreateMeal}> Start your meal </button> }
+        {createMeal ? <SearchBar setBrandedFood={setBrandedFood} setCommonFood={setCommonFood}/> : <button onClick={handleCreateMeal}> Start your meal </button> }
           <h5 id="common">Common Food</h5>
           <div className="row row-cols-1 row-cols-md-5 g-3 pictures" style={{marginLeft:"5%"}}>
                 {commonFood.map((item)=>{
